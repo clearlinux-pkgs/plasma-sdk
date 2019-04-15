@@ -6,7 +6,7 @@
 #
 Name     : plasma-sdk
 Version  : 5.15.4
-Release  : 14
+Release  : 15
 URL      : https://download.kde.org/stable/plasma/5.15.4/plasma-sdk-5.15.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.15.4/plasma-sdk-5.15.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.15.4/plasma-sdk-5.15.4.tar.xz.sig
@@ -21,10 +21,18 @@ Requires: plasma-sdk-locales = %{version}-%{release}
 Requires: plasma-sdk-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : karchive-dev
+BuildRequires : kdbusaddons-dev
+BuildRequires : kdeclarative-dev
 BuildRequires : kirigami2-dev
+BuildRequires : kpackage-dev
+BuildRequires : kparts-dev
 BuildRequires : ktexteditor-dev
+BuildRequires : ktextwidgets-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : sonnet-dev
 
 %description
 No detailed description available
@@ -89,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554223731
+export SOURCE_DATE_EPOCH=1555347124
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -97,7 +105,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1554223731
+export SOURCE_DATE_EPOCH=1555347124
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-sdk
 cp COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/COPYING
