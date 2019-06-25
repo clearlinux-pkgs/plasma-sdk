@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-sdk
-Version  : 5.16.1
-Release  : 20
-URL      : https://download.kde.org/stable/plasma/5.16.1/plasma-sdk-5.16.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.1/plasma-sdk-5.16.1.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.16.1/plasma-sdk-5.16.1.tar.xz.sig
+Version  : 5.16.2
+Release  : 21
+URL      : https://download.kde.org/stable/plasma/5.16.2/plasma-sdk-5.16.2.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.2/plasma-sdk-5.16.2.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.2/plasma-sdk-5.16.2.tar.xz.sig
 Summary  : Applications useful for Plasma development
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -82,14 +82,14 @@ man components for the plasma-sdk package.
 
 
 %prep
-%setup -q -n plasma-sdk-5.16.1
+%setup -q -n plasma-sdk-5.16.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1560876222
+export SOURCE_DATE_EPOCH=1561482504
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -105,7 +105,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1560876222
+export SOURCE_DATE_EPOCH=1561482504
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-sdk
 cp COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/COPYING
