@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-sdk
-Version  : 5.16.5
-Release  : 24
-URL      : https://download.kde.org/stable/plasma/5.16.5/plasma-sdk-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/plasma-sdk-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/plasma-sdk-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 25
+URL      : https://download.kde.org/stable/plasma/5.17.0/plasma-sdk-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/plasma-sdk-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/plasma-sdk-5.17.0.tar.xz.sig
 Summary  : Applications useful for Plasma development
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -82,14 +82,14 @@ man components for the plasma-sdk package.
 
 
 %prep
-%setup -q -n plasma-sdk-5.16.5
+%setup -q -n plasma-sdk-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567651154
+export SOURCE_DATE_EPOCH=1571164782
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -102,15 +102,15 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567651154
+export SOURCE_DATE_EPOCH=1571164782
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-sdk
-cp COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-sdk/COPYING.LIB
+cp %{_builddir}/plasma-sdk-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/579588a75aec3d4f0d4629a074965f459f4e2504
+cp %{_builddir}/plasma-sdk-5.17.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-sdk/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -189,11 +189,16 @@ popd
 /usr/share/metainfo/org.kde.plasma.themeexplorer.appdata.xml
 /usr/share/metainfo/org.kde.plasmaengineexplorer.appdata.xml
 /usr/share/metainfo/org.kde.plasmoidviewer.appdata.xml
+/usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/DualMontage.qml
+/usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/GlobalMenuBar.qml
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGrid.qml
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/IconGridDelegate.qml
+/usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Menu.qml
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Preview.qml
+/usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/ResponsivePreview.qml
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/SvgGrid.qml
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/Tools.qml
+/usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/ToolsResponsive.qml
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/contents/ui/cuttlefish.qml
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/metadata.desktop
 /usr/share/plasma/packages/org.kde.plasma.cuttlefish/metadata.json
@@ -223,8 +228,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/plasma-sdk/COPYING
-/usr/share/package-licenses/plasma-sdk/COPYING.LIB
+/usr/share/package-licenses/plasma-sdk/01a6b4bf79aca9b556822601186afab86e8c4fbf
+/usr/share/package-licenses/plasma-sdk/579588a75aec3d4f0d4629a074965f459f4e2504
 
 %files man
 %defattr(0644,root,root,0755)
