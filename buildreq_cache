@@ -1,4 +1,4 @@
-5.17.0
+5.17.1
 karchive-dev
 kdbusaddons-dev
 kdeclarative-dev
@@ -10,3 +10,4 @@ ktextwidgets-dev
 kwindowsystem-dev
 plasma-framework-dev
 sonnet-dev
+util-linux
