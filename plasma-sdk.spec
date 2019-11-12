@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-sdk
-Version  : 5.17.2
-Release  : 27
-URL      : https://download.kde.org/stable/plasma/5.17.2/plasma-sdk-5.17.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.2/plasma-sdk-5.17.2.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.17.2/plasma-sdk-5.17.2.tar.xz.sig
+Version  : 5.17.3
+Release  : 28
+URL      : https://download.kde.org/stable/plasma/5.17.3/plasma-sdk-5.17.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.3/plasma-sdk-5.17.3.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.3/plasma-sdk-5.17.3.tar.xz.sig
 Summary  : Applications useful for Plasma development
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -25,7 +25,6 @@ BuildRequires : kirigami2-dev
 BuildRequires : ktexteditor-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : util-linux
 
 %description
 No detailed description available
@@ -83,14 +82,14 @@ man components for the plasma-sdk package.
 
 
 %prep
-%setup -q -n plasma-sdk-5.17.2
+%setup -q -n plasma-sdk-5.17.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572443447
+export SOURCE_DATE_EPOCH=1573580686
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -107,11 +106,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1572443447
+export SOURCE_DATE_EPOCH=1573580686
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-sdk
-cp %{_builddir}/plasma-sdk-5.17.2/COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/579588a75aec3d4f0d4629a074965f459f4e2504
-cp %{_builddir}/plasma-sdk-5.17.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-sdk/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/plasma-sdk-5.17.3/COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/579588a75aec3d4f0d4629a074965f459f4e2504
+cp %{_builddir}/plasma-sdk-5.17.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-sdk/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
