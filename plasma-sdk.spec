@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-sdk
-Version  : 5.18.2
-Release  : 33
-URL      : https://download.kde.org/stable/plasma/5.18.2/plasma-sdk-5.18.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.2/plasma-sdk-5.18.2.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.2/plasma-sdk-5.18.2.tar.xz.sig
+Version  : 5.18.3
+Release  : 34
+URL      : https://download.kde.org/stable/plasma/5.18.3/plasma-sdk-5.18.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.3/plasma-sdk-5.18.3.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.3/plasma-sdk-5.18.3.tar.xz.sig
 Summary  : Applications useful for Plasma development
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -82,15 +82,15 @@ man components for the plasma-sdk package.
 
 
 %prep
-%setup -q -n plasma-sdk-5.18.2
-cd %{_builddir}/plasma-sdk-5.18.2
+%setup -q -n plasma-sdk-5.18.3
+cd %{_builddir}/plasma-sdk-5.18.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582743733
+export SOURCE_DATE_EPOCH=1583866319
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -107,11 +107,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1582743733
+export SOURCE_DATE_EPOCH=1583866319
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-sdk
-cp %{_builddir}/plasma-sdk-5.18.2/COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/579588a75aec3d4f0d4629a074965f459f4e2504
-cp %{_builddir}/plasma-sdk-5.18.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-sdk/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/plasma-sdk-5.18.3/COPYING %{buildroot}/usr/share/package-licenses/plasma-sdk/579588a75aec3d4f0d4629a074965f459f4e2504
+cp %{_builddir}/plasma-sdk-5.18.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-sdk/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
